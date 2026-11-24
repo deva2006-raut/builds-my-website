@@ -4,7 +4,9 @@ A business owner shares what they have (name, city, social links, Google Busines
 list, photos). The app reads it, asks an AI to write a real website, lets the owner edit any section,
 regenerate a single section, save everything in MySQL, and publish to a public URL.
 
-Laravel 11 + MySQL + Gemini (`gemini-2.0-flash`) via plain HTTP. No API keys in the repo.
+Laravel 12 + MySQL + Gemini (`gemini-2.0-flash`) via plain HTTP. No API keys in the repo.
+
+Submission checklist, HR email draft and demo video script: see `SUBMISSION.md`.
 
 ## What maps to the brief
 
@@ -75,8 +77,18 @@ gitignored; `.env.example` only has empty placeholders.
 - Images are stored and listed by filename; gallery copy is written from the owner's text, not from image recognition.
 - Generated HTML is escaped in Blade; the model never returns raw HTML that gets rendered.
 
-## Not verified in this workspace
+## Verified on this machine
 
-PHP, Composer and MySQL are not installed on the machine this code was written on, so the app has
-**not** been installed, migrated or run here. Run the setup above and check the create → edit →
-regenerate → publish flow before recording the demo video.
+Installed portable PHP 8.4.28 + Composer, MariaDB 11.4.5 (MySQL-compatible) on `127.0.0.1:3307`, ran the
+migrations against MySQL, and exercised the app over HTTP:
+
+- `GET /`, `/sites/create`, `/sites/1` → 200; unknown path → 404
+- `POST /sites` created `sharma-sweets-nagpur` with its source row saved, then hit the graceful
+  "AI is unavailable" path because no Gemini key is configured (expected)
+- conflict banner renders when `sites.conflicts` is populated
+- `POST /sites/1/publish` → 302, `GET /s/sharma-sweets-nagpur` → 200 with generated content;
+  before publishing the same URL is 404
+- `PUT /sites/1/sections/1` saved edited copy and the public page showed the new heading
+
+Not exercised: a real Gemini call (no key), file upload of a real PDF, and a two-business end-to-end run.
+Put a real `GEMINI_API_KEY` in `.env` before recording the demo video.
