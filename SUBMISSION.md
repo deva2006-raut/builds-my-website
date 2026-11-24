@@ -10,8 +10,8 @@ Deadline: **30 November 2026** · Send to **hr@websites.co.in**
 | `README.md` | Done |
 | `DECISIONS.md` | Done |
 | `.env.example` (no secrets) | Done |
-| Git repo + first commit | Done locally (branch `main`, 77 tracked files, `.env` ignored) |
-| Push to GitHub | **Pending — needs your GitHub login** (`gh auth login`, then `git remote add origin … && git push -u origin main`) |
+| Git repo + first commit | Done locally (branch `main`, `.env` ignored) |
+| Push to GitHub | **Done** — https://github.com/deva2006-raut/builds-my-website (verified: README/DECISIONS/SUBMISSION/app present, `.env` returns 404) |
 | 5-min demo video | **Pending — screen + voice, cannot be generated for you** |
 | Email to HR | Draft below; send once the two links exist |
 
@@ -24,7 +24,7 @@ Hi HR Team,
 
 Thank you for the Full Stack Development assignment. Please find my submission below.
 
-GitHub repository: <repo link>
+GitHub repository: https://github.com/deva2006-raut/builds-my-website
 Demo video (5 min): <video link>
 
 The app is "AI Builds My Website" — Laravel + MySQL. A business owner shares a name, city,
@@ -33,8 +33,8 @@ Gemini to write the site, lets the owner edit or regenerate a single section, an
 to a public URL. Facts are only taken from the sources: conflicts between sources are shown
 to the owner instead of being auto-picked, and missing fields are left empty.
 
-Expected stipend: ₹<amount> per month
-Earliest joining date: <date>
+Expected stipend: As per company policy
+Earliest joining date: Immediately (remote)
 
 DECISIONS.md in the repo covers the key choices, what I cut, and what I would do next.
 
