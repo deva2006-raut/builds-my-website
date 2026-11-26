@@ -151,7 +151,11 @@ class SourceExtractor
     {
         $html = preg_replace('/<(script|style|noscript)\b[^>]*>.*?<\/\1>/is', ' ', $html) ?? '';
         $html = preg_replace('/<!--.*?-->/s', ' ', $html) ?? '';
+        // Cloudflare hides addresses as <a href="/cdn-cgi/l/email-protection">[email protected]</a>.
+        // The placeholder is not a real fact, so drop the whole link instead of feeding it to the model.
+        $html = preg_replace('/<a\b[^>]*email-protection[^>]*>.*?<\/a>/is', ' ', $html) ?? '';
         $text = html_entity_decode(strip_tags($html), ENT_QUOTES | ENT_HTML5);
+        $text = preg_replace('/\[email\s*protected\]/i', '', $text) ?? $text;
         $text = preg_replace('/[ \t]+/', ' ', $text) ?? $text;
         $text = preg_replace('/\n{3,}/', "\n\n", $text) ?? $text;
 

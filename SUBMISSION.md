@@ -12,8 +12,8 @@ Deadline: **30 November 2026** · Send to **hr@websites.co.in**
 | `.env.example` (no secrets) | Done |
 | Git repo + first commit | Done locally (branch `main`, `.env` ignored) |
 | Push to GitHub | **Done** — https://github.com/deva2006-raut/builds-my-website (verified: README/DECISIONS/SUBMISSION/app present, `.env` returns 404) |
-| 5-min demo video | **Pending — screen + voice, cannot be generated for you** |
-| Email to HR | Draft below; send once the two links exist |
+| Demo video | **Done** — `demo/website-builder-demo.mp4` (3:30, silent screen walkthrough, no voice-over) |
+| Email to HR | Draft below |
 
 ## Email draft
 
@@ -25,7 +25,8 @@ Hi HR Team,
 Thank you for the Full Stack Development assignment. Please find my submission below.
 
 GitHub repository: https://github.com/deva2006-raut/builds-my-website
-Demo video (5 min): <video link>
+Demo video (3:30, silent screen walkthrough):
+https://github.com/deva2006-raut/builds-my-website/blob/main/demo/website-builder-demo.mp4
 
 The app is "AI Builds My Website" — Laravel + MySQL. A business owner shares a name, city,
 social/Google Business links, a PDF price list and photos; the app reads those sources, asks
@@ -68,5 +69,5 @@ php artisan serve --host=127.0.0.1 --port=8000
 Local MySQL-compatible server: MariaDB 11.4.5 on `127.0.0.1:3307`, database `ai_builds_my_website`,
 user `root`. Portable PHP 8.4.28 lives in `../tools/php`.
 
-Gemini key is empty in `.env`, so generation currently ends in the graceful "AI is unavailable" path —
-put a real key in `GEMINI_API_KEY` before recording the video.
+The video was recorded with a local model (`AI_OPENAI_BASE_URL` → Ollama `qwen2.5:3b`) because no Gemini
+key was available on this machine; the Gemini path is the default and only needs `GEMINI_API_KEY`.

@@ -38,6 +38,16 @@ is how a website ends up advertising the wrong number.
 Two retries on 429/5xx, then `AiUnavailable`. The site and its sources are already persisted, so the
 owner loses nothing and can press "Regenerate everything" later.
 
+**The provider is a seam, not a hard dependency.**
+`AiClient` builds either the Gemini `generateContent` request or, when `AI_OPENAI_BASE_URL` is set, an
+OpenAI-style `chat/completions` request. Same `json()` contract either way, so the generator does not
+care which model answers. It let me record the demo on a local model when no Gemini key was available,
+and it is the first thing a reviewer can swap for another provider.
+
+**Scraped HTML is cleaned before it reaches the model.**
+Cloudflare replaces addresses with `[email protected]`; that placeholder is not a fact, so the extractor
+drops the link rather than letting the copywriter turn it into an email address.
+
 **No secrets in the repo.**
 `GEMINI_API_KEY` comes from `.env`; `.env.example` ships empty values; `.env` is gitignored.
 

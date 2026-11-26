@@ -40,5 +40,14 @@ return [
         'key' => env('GEMINI_API_KEY'),
         'model' => env('GEMINI_MODEL', 'gemini-2.0-flash'),
         'timeout' => env('GEMINI_TIMEOUT', 60),
+
+        /*
+         * Optional drop-in replacement: any OpenAI-compatible chat completions
+         * endpoint, e.g. a local Ollama server (http://127.0.0.1:11434/v1).
+         * Handy for offline demos and tests when no Gemini key is available.
+         * Left empty, the Gemini API above is used.
+         */
+        'openai_base_url' => env('AI_OPENAI_BASE_URL'),
+        'openai_model' => env('AI_OPENAI_MODEL', 'qwen3:4b'),
     ],
 ];

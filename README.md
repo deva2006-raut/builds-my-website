@@ -6,7 +6,8 @@ regenerate a single section, save everything in MySQL, and publish to a public U
 
 Laravel 12 + MySQL + Gemini (`gemini-2.0-flash`) via plain HTTP. No API keys in the repo.
 
-Submission checklist, HR email draft and demo video script: see `SUBMISSION.md`.
+Demo video: `demo/website-builder-demo.mp4` (3:30, silent screen walkthrough).
+Submission checklist, HR email draft and demo script: see `SUBMISSION.md`.
 
 ## What maps to the brief
 
@@ -59,6 +60,10 @@ php artisan serve
 
 Put your Gemini key in `.env` as `GEMINI_API_KEY=...` (free key from Google AI Studio). `.env` is
 gitignored; `.env.example` only has empty placeholders.
+
+No Gemini key at hand? `AiClient` also speaks the OpenAI chat-completions shape, so any local model
+works for a demo: run `ollama serve` and set `AI_OPENAI_BASE_URL=http://127.0.0.1:11434/v1` and
+`AI_OPENAI_MODEL=qwen2.5:3b` in `.env`. Leave those empty in production and Gemini is used.
 
 ## Routes
 
